@@ -1,0 +1,311 @@
+/* ---------------------------
+   Modern Dark Glass CSS
+--------------------------- */
+
+:root {
+    --bg-main: #0b0b0f;
+    --bg-glass: rgba(255, 255, 255, 0.05);
+    --bg-glass-strong: rgba(255, 255, 255, 0.08);
+    --border-glass: rgba(255, 255, 255, 0.12);
+    --text-main: #e6e6eb;
+    --text-muted: #a0a0aa;
+    --accent: #7c5cff;
+    --radius: 14px;
+    --blur: 14px;
+    --transition: 0.35s cubic-bezier(.4, 0, .2, 1);
+}
+
+/* ---------------------------
+   Base
+--------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, sans-serif;
+    background: radial-gradient(circle at 20% 20%, #151520, #07070a 60%);
+    color: var(--text-main);
+    line-height: 1.6;
+    animation: fadeIn 1s ease;
+}
+
+/* ---------------------------
+   Glass Container
+--------------------------- */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem;
+}
+
+.glass {
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--blur));
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius);
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+.glass:hover {
+    background: var(--bg-glass-strong);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------------------------
+   Typography
+--------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 1.4em;
+    margin-bottom: .6em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+h1 {
+    font-size: 2.4rem;
+}
+
+h2 {
+    font-size: 1.9rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+    transition: var(--transition);
+}
+
+p:hover {
+    color: var(--text-main);
+}
+
+/* ---------------------------
+   Links
+--------------------------- */
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    position: relative;
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    transition: var(--transition);
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* ---------------------------
+   Images
+--------------------------- */
+
+img {
+    max-width: 100%;
+    border-radius: var(--radius);
+    display: block;
+    transition: var(--transition);
+    border: 1px solid var(--border-glass);
+}
+
+img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .6);
+}
+
+/* ---------------------------
+   Lists
+--------------------------- */
+
+ul,
+ol {
+    padding-left: 1.4rem;
+    color: var(--text-muted);
+}
+
+li {
+    margin: .4rem 0;
+    transition: var(--transition);
+}
+
+li:hover {
+    color: var(--text-main);
+    transform: translateX(4px);
+}
+
+/* ---------------------------
+   Tables
+--------------------------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    overflow: hidden;
+    border-radius: var(--radius);
+}
+
+thead {
+    background: var(--bg-glass-strong);
+}
+
+th,
+td {
+    padding: .9rem 1rem;
+    text-align: left;
+}
+
+th {
+    font-weight: 600;
+}
+
+tbody tr {
+    border-top: 1px solid var(--border-glass);
+    transition: var(--transition);
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* ---------------------------
+   Buttons
+--------------------------- */
+
+button {
+    background: var(--accent);
+    border: none;
+    color: white;
+    padding: .7rem 1.4rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(124, 92, 255, .4);
+}
+
+/* ---------------------------
+   Code Blocks
+--------------------------- */
+
+pre,
+code {
+    background: #0f0f14;
+    border: 1px solid var(--border-glass);
+    border-radius: 10px;
+}
+
+pre {
+    padding: 1rem;
+    overflow: auto;
+}
+
+code {
+    padding: .2rem .4rem;
+}
+
+/* ---------------------------
+   Scrollbar
+--------------------------- */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2a2a35;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3a3a48;
+}
+
+/* ---------------------------
+   Animations
+--------------------------- */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.fade-in {
+    animation: fadeIn .8s ease both;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* ---------------------------
+   Responsive
+--------------------------- */
+
+@media (max-width: 700px) {
+    .container {
+        padding: 1.4rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
