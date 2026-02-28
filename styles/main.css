@@ -309,3 +309,57 @@ code {
         font-size: 2rem;
     }
 }
+
+/* ---------------------------
+   Details & Summary
+--------------------------- */
+
+details {
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--blur));
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius);
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+details[open] {
+    background: var(--bg-glass-strong);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+summary {
+    list-style: none;
+    font-weight: 600;
+    color: var(--accent);
+    position: relative;
+    padding-right: 1.5rem;
+}
+
+summary::marker {
+    content: "";
+}
+
+summary::after {
+    content: "▸";
+    position: absolute;
+    right: 0;
+    transition: transform var(--transition);
+}
+
+details[open] summary::after {
+    transform: rotate(90deg);
+}
+
+details>*:not(summary) {
+    margin-top: .8rem;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+details:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
